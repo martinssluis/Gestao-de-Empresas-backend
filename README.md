@@ -1,101 +1,148 @@
 # Gestao-de-Empresas-backend
 
-## Estrutura do projeto
+API REST para sistema de gestão de empresas desenvolvida com Spring Boot, seguindo arquitetura em camadas.
+
+## 🚀 Tecnologias
+
+- **Java 17**
+- **Spring Boot 3.x**
+- **Spring Data JPA**
+- **H2 Database** (desenvolvimento)
+- **Maven**
+
+## 📁 Estrutura do Projeto
 
 ```
-├── 📁 backend
-│   ├── 📁 .mvn
-│   │   └── 📁 wrapper
-│   │       └── 📄 maven-wrapper.properties
-│   ├── 📁 Gestao-De-Empresas
-│   │   ├── 📁 src
-│   │   │   ├── 📁 main
-│   │   │   │   ├── 📁 java
-│   │   │   │   │   └── 📁 com
-│   │   │   │   │       └── 📁 example
-│   │   │   │   │           └── ☕ Main.java
-│   │   │   │   └── 📁 resources
-│   │   │   └── 📁 test
-│   │   │       └── 📁 java
-│   │   └── ⚙️ pom.xml
-│   ├── 📁 src
-│   │   ├── 📁 main
-│   │   │   ├── 📁 java
-│   │   │   │   └── 📁 com
-│   │   │   │       └── 📁 aceleradev
-│   │   │   │           └── 📁 backend
-│   │   │   │               └── ☕ BackendApplication.java
-│   │   │   └── 📁 resources
-│   │   │       ├── 📁 static
-│   │   │       ├── 📁 templates
-│   │   │       ├── 📄 application-test.properties
-│   │   │       ├── 📄 application.properties
-│   │   │       └── ⚙️ application.yml
-│   │   └── 📁 test
-│   │       └── 📁 java
-│   │           └── 📁 com
-│   │               └── 📁 aceleradev
-│   │                   └── 📁 backend
-│   │                       └── ☕ BackendApplicationTests.java
-│   ├── 📁 untitled
-│   │   ├── 📁 src
-│   │   │   ├── 📁 main
-│   │   │   │   ├── 📁 java
-│   │   │   │   │   └── 📁 com
-│   │   │   │   │       ├── 📁 aceleradev
-│   │   │   │   │       └── ☕ Main.java
-│   │   │   │   └── 📁 resources
-│   │   │   └── 📁 test
-│   │   │       └── 📁 java
-│   │   └── ⚙️ pom.xml
-│   ├── ⚙️ .gitattributes
-│   ├── ⚙️ .gitignore
-│   ├── 📝 HELP.md
-│   ├── 📄 mvnw
-│   ├── 📄 mvnw.cmd
-│   └── ⚙️ pom.xml
-└── 📝 README.md
+backend/
+├── .mvn/
+│   └── wrapper/
+│       └── maven-wrapper.properties
+├── Gestao-De-Empresas/
+│   └── src/
+│       ├── main/
+│       │   ├── java/
+│       │   │   └── com/
+│       │   │       └── aceleradev/
+│       │   │           └── backend/
+│       │   │               ├── config/          # Configurações da aplicação
+│       │   │               ├── entities/        # Entidades JPA (Client, etc)
+│       │   │               ├── repositories/    # Repositórios Spring Data
+│       │   │               ├── resources/       # Controllers REST
+│       │   │               ├── services/        # Lógica de negócio
+│       │   │               └── BackendApplication.java
+│       │   └── resources/
+│       │       ├── static/
+│       │       ├── templates/
+│       │       ├── application.properties
+│       │       ├── application-test.properties
+│       │       └── application.yml
+│       └── test/
+│           └── java/
+│               └── com/
+│                   └── aceleradev/
+│                       └── backend/
+│                           └── BackendApplicationTests.java
+├── .gitattributes
+├── .gitignore
+├── HELP.md
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+└── README.md
 ```
 
+## 🏗️ Arquitetura em Camadas
 
-### Pastas principais
+### 📦 **entities/**
+Entidades JPA que representam as tabelas do banco de dados.
+- `Client.java` - Entidade cliente com anotações JPA (@Entity, @Id, @GeneratedValue)
 
-- **`backend/`**  
-  Pasta raiz do projeto backend em Java com Spring Boot e Maven.
+### 🗄️ **repositories/**
+Interfaces que estendem JpaRepository para operações de banco de dados.
+- `ClientRepository.java` - Repositório para operações CRUD de Client
 
-- **`backend/src/main/java/com/aceleradev/backend/`**  
-  Contém o código-fonte principal da aplicação Spring Boot.
-    - **`BackendApplication.java`**: classe principal da aplicação, ponto de entrada (`main`) do Spring Boot.
+### 💼 **services/**
+Camada de lógica de negócio com injeção de dependências.
+- `ClientService.java` - Serviços relacionados ao Client
 
-- **`backend/src/main/resources/`**  
-  Contém arquivos de configuração e recursos da aplicação.
-    - **`application.properties` / `application.yml`**: arquivos de configuração da aplicação (banco de dados, portas, profiles etc).
-    - **`application-test.properties`**: configurações específicas para o ambiente de teste.
-    - **`static/`**: arquivos estáticos (CSS, JS, imagens), se necessário.
-    - **`templates/`**: templates de visualização (por exemplo, Thymeleaf), se utilizados.
+### 🌐 **resources/**
+Controllers REST que expõem os endpoints da API.
+- `ClientResource.java` - Endpoints REST para Client
 
-- **`backend/src/test/java/com/aceleradev/backend/`**  
-  Contém os testes automatizados da aplicação.
-    - **`BackendApplicationTests.java`**: classe de testes base da aplicação.
+### ⚙️ **config/**
+Classes de configuração da aplicação (database seeding, beans, etc).
 
-- **`backend/.mvn/`**  
-  Arquivos relacionados ao Maven Wrapper, permitindo rodar o projeto sem Maven instalado globalmente.
-    - **`maven-wrapper.properties`**: configurações do Maven Wrapper.
+## 🔧 Como Executar
 
-- **`backend/pom.xml`**  
-  Arquivo de configuração Maven principal do projeto. Define dependências, plugins e configurações de build.
+### Pré-requisitos
+- Java 17+
+- Maven 3.x
 
-- **`backend/Gestao-De-Empresas/`**  
-  Projeto Maven adicional (módulo) com sua própria estrutura `src` e `pom.xml`. Pode ser um módulo antigo, um experimento ou um subprojeto relacionado à gestão de empresas.
+### Executar a aplicação
 
-- **`backend/untitled/`**  
-  Outro projeto Maven separado, possivelmente criado para testes/investigações. Também possui sua própria estrutura `src` e `pom.xml`.
+#### Via Maven Wrapper (recomendado):
+```bash
+# Linux/Mac
+./mvnw spring-boot:run
 
-- **`.gitignore` / `.gitattributes`**  
-  Arquivos de configuração do Git para ignorar arquivos/pastas e ajustar atributos de commits.
+# Windows
+mvnw.cmd spring-boot:run
+```
 
-- **`mvnw` / `mvnw.cmd`**  
-  Scripts do Maven Wrapper para rodar o Maven via linha de comando em Linux/Mac (`mvnw`) ou Windows (`mvnw.cmd`).
+#### Via Maven (se instalado globalmente):
+```bash
+mvn spring-boot:run
+```
 
-- **`README.md`**  
-  Arquivo de documentação principal do projeto. Contém visão geral, instruções de uso e detalhes da estrutura.
+### Executar testes
+```bash
+./mvnw test
+```
+
+## 🗃️ Banco de Dados
+
+A aplicação utiliza **H2 Database** em memória para desenvolvimento.
+
+### Acessar H2 Console:
+1. Execute a aplicação
+2. Acesse: `http://localhost:8080/h2-console`
+3. JDBC URL: `jdbc:h2:mem:testdb`
+4. Username: `sa`
+5. Password: (deixe em branco)
+
+## 📚 Endpoints da API
+
+### Client
+- `GET /clients` - Listar todos os clientes
+- `GET /clients/{id}` - Buscar cliente por ID
+- `POST /clients` - Criar novo cliente
+- `PUT /clients/{id}` - Atualizar cliente
+- `DELETE /clients/{id}` - Deletar cliente
+
+## 🎯 Funcionalidades Implementadas
+
+- ✅ Entidade Client com JPA
+- ✅ Repository Pattern com Spring Data
+- ✅ Service Layer com injeção de dependência
+- ✅ REST Controllers
+- ✅ Database Seeding (dados iniciais)
+- ✅ Configuração H2 Database
+
+## 📝 Notas de Desenvolvimento
+
+- O projeto segue o padrão **MVC** (Model-View-Controller)
+- Utiliza **Dependency Injection** do Spring
+- **Database Seeding** configurado para popular dados iniciais
+- Arquivos de configuração em `application.properties` e `application.yml`
+
+## 🤝 Contribuindo
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto é open source e está disponível sob a licença MIT.
