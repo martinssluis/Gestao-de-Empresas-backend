@@ -4,8 +4,8 @@ API REST para sistema de gestão de empresas desenvolvida com Spring Boot, segui
 
 ## 🚀 Tecnologias
 
-- **Java 17**
-- **Spring Boot 3.x**
+- **Java 21**
+- **Spring Boot 3.5.7**
 - **Spring Data JPA**
 - **H2 Database** (desenvolvimento)
 - **Maven**
