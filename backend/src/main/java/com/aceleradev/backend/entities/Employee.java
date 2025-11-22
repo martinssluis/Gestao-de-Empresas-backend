@@ -2,7 +2,7 @@ package com.aceleradev.backend.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -15,24 +15,24 @@ public class Employee {
     private String name;
     private String phone;
     private String email;
-    private String pawssord;
+    private String password;
     private String position;
-    private Double baseSallary;
-    private String discription;
-    private Date hiredIn;
-    private Date firedIn;
+    private Double baseSalary;
+    private String description;
+    private LocalDate hiredIn;
+    private LocalDate firedIn;
 
     public Employee(){}
 
-    public Employee(Long id, String name, String phone, String email, String pawssord, String position, Double baseSallary, String discription, Date hiredIn, Date firedIn) {
+    public Employee(Long id, String name, String phone, String email, String password, String position, Double baseSalary, String description, LocalDate hiredIn, LocalDate firedIn) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.pawssord = pawssord;
+        this.password = password;
         this.position = position;
-        this.baseSallary = baseSallary;
-        this.discription = discription;
+        this.baseSalary = baseSalary;
+        this.description = description;
         this.hiredIn = hiredIn;
         this.firedIn = firedIn;
     }
@@ -69,12 +69,12 @@ public class Employee {
         this.email = email;
     }
 
-    public String getPawssord() {
-        return pawssord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPawssord(String pawssord) {
-        this.pawssord = pawssord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPosition() {
@@ -85,35 +85,35 @@ public class Employee {
         this.position = position;
     }
 
-    public Double getBaseSallary() {
-        return baseSallary;
+    public Double getBaseSalary() {
+        return baseSalary;
     }
 
-    public void setBaseSallary(Double baseSallary) {
-        this.baseSallary = baseSallary;
+    public void setBaseSalary(Double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Date getHiredIn() {
+    public LocalDate getHiredIn() {
         return hiredIn;
     }
 
-    public void setHiredIn(Date hiredIn) {
+    public void setHiredIn(LocalDate hiredIn) {
         this.hiredIn = hiredIn;
     }
 
-    public Date getFiredIn() {
+    public LocalDate getFiredIn() {
         return firedIn;
     }
 
-    public void setFiredIn(Date firedIn) {
+    public void setFiredIn(LocalDate firedIn) {
         this.firedIn = firedIn;
     }
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/employees")
+@RequestMapping("/employees")
 public class EmployeeResource {
 
     @Autowired
@@ -24,7 +24,7 @@ public class EmployeeResource {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Employee> findById(@PathVariable Long id){
         Employee obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
