@@ -2,7 +2,7 @@ package com.aceleradev.backend.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -17,11 +17,11 @@ public class Client {
     private String email;
     private String identifier;
     private String description;
-    private Date createdAt;
+    private LocalDate createdAt; // Biblioteca java.util.Date foi substituida pela java.time
 
     public Client(){}
 
-    public Client(Long id, String name, String phoneNumber, String email, String identifier, String description, Date createdAt) {
+    public Client(Long id, String name, String phoneNumber, String email, String identifier, String description, LocalDate createdAt) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -79,11 +79,11 @@ public class Client {
         this.description = description;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 

@@ -19,14 +19,14 @@ public class ClientResource {
     private ClientService service;
 
     @GetMapping
-    public ResponseEntity<List<Client>> findAll(){
+    public ResponseEntity<List<Client>> findAll(){ // Considerar usar o Page<>()
         List<Client> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}") // Não precisa usar o value
     public ResponseEntity<Client> findById(@PathVariable Long id){
         Client obj = service.findById(id);
-        return ResponseEntity.ok().body(obj);
+        return ResponseEntity.ok().body(obj); // Considerar usar os DTOs para retorno e parâmetro
     }
 }

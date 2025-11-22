@@ -2,6 +2,7 @@ package com.aceleradev.backend.services;
 
 import com.aceleradev.backend.entities.Client;
 import com.aceleradev.backend.repositories.ClientRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class ClientService {
     }
 
     public Client findById(Long id){
-        Optional<Client> obj = repository.findById(id);
-        return obj.get();
+        Client obj = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Client not found")); // Verificação para evitar o uso do .get() no retorno
+        return obj;
     }
 }
