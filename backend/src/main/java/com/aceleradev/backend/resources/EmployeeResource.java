@@ -1,6 +1,6 @@
 package com.aceleradev.backend.resources;
 
-import com.aceleradev.backend.entities.Employee;
+import com.aceleradev.backend.model.entities.Employee;
 import com.aceleradev.backend.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.aceleradev.backend.entities;
+package com.aceleradev.backend.model.entities;
 
 import jakarta.persistence.*;
 
@@ -15,13 +15,14 @@ public class Client {
     private String name;
     private String phoneNumber;
     private String email;
+    private String password;
     private String identifier;
     private String description;
     private LocalDate createdAt; // Biblioteca java.util.Date foi substituida pela java.time
 
     public Client(){}
 
-    public Client(Long id, String name, String phoneNumber, String email, String identifier, String description, LocalDate createdAt) {
+    public Client(Long id, String name, String phoneNumber, String email, String identifier, String description, LocalDate createdAt, String password) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -29,6 +30,7 @@ public class Client {
         this.identifier = identifier;
         this.description = description;
         this.createdAt = createdAt;
+        this.password = password;
     }
 
     public Long getId() {
@@ -50,6 +52,8 @@ public class Client {
     public String getPhonneNumber() {
         return phoneNumber;
     }
+
+    public String getPassword(){return password;};
 
     public void setPhonneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;

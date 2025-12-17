@@ -1,7 +1,7 @@
 package com.aceleradev.backend.config;
 
-import com.aceleradev.backend.entities.Client;
-import com.aceleradev.backend.entities.Employee;
+import com.aceleradev.backend.model.entities.Client;
+import com.aceleradev.backend.model.entities.Employee;
 import com.aceleradev.backend.repositories.ClientRepository;
 import com.aceleradev.backend.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @Configuration
@@ -26,9 +25,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception{
-        Client c1 = new Client(null, "Pc The One", "12982228898", "pctheone@email.com", "00000000001", "O Melhorzin que tá tendo", LocalDate.now());
-        Client c2 = new Client(null, "Martins Luis", "61982456789", "martinsLuis@email.com", "00000000002", "Garoto Prodigio",LocalDate.now());
-        Client c3 = new Client(null, "Dropp", "11987654321", "dropp@email.com", "00000000003", "O Brabo do React", LocalDate.now());
+        Client c1 = new Client(null, "Pc The One", "12982228898", "pctheone@email.com", "00000000001", "O Melhorzin que tá tendo", LocalDate.now(), "senhaCliente");
+        Client c2 = new Client(null, "Martins Luis", "61982456789", "martinsLuis@email.com", "00000000002", "Garoto Prodigio",LocalDate.now(), "senhaCliente");
+        Client c3 = new Client(null, "Dropp", "11987654321", "dropp@email.com", "00000000003", "O Brabo do React", LocalDate.now(), "senhaCliente");
 
         Employee e1 = new Employee(null, "Random", "11984567121", "random@email.com", "senhaFuncionario", "Dev", 3700.00, "Nosso Latera", LocalDate.now(), null);
 

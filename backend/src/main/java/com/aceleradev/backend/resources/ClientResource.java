@@ -1,6 +1,6 @@
 package com.aceleradev.backend.resources;
 
-import com.aceleradev.backend.entities.Client;
+import com.aceleradev.backend.model.entities.Client;
 import com.aceleradev.backend.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
