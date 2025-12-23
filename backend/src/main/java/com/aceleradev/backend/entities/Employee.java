@@ -1,5 +1,6 @@
 package com.aceleradev.backend.entities;
 
+import com.aceleradev.backend.entities.enums.Role;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -16,7 +17,7 @@ public class Employee {
     private String phone;
     private String email;
     private String password;
-    private String position;
+    private Integer position;
     private Double baseSalary;
     private String description;
     private LocalDate hiredIn;
@@ -24,13 +25,13 @@ public class Employee {
 
     public Employee(){}
 
-    public Employee(Long id, String name, String phone, String email, String password, String position, Double baseSalary, String description, LocalDate hiredIn, LocalDate firedIn) {
+    public Employee(Long id, String name, String phone, String email, String password, Role role, Double baseSalary, String description, LocalDate hiredIn, LocalDate firedIn) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.password = password;
-        this.position = position;
+        setPosition(role);
         this.baseSalary = baseSalary;
         this.description = description;
         this.hiredIn = hiredIn;
@@ -77,12 +78,16 @@ public class Employee {
         this.password = password;
     }
 
-    public String getPosition() {
-        return position;
+    public Role getPosition() {
+
+        return Role.valueOf(position);
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setPosition(Role role) {
+        if (role != null){
+        this.position = role.getCode();
+        }
+
     }
 
     public Double getBaseSalary() {
