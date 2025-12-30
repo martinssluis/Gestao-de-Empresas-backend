@@ -21,5 +21,11 @@ public class EmployeeService {
     public Employee findById(Long id){
         Optional<Employee> obj = repository.findById(id);
         return obj.get();
+
+        // padronizar igual a ClientService? se o ID não existir = 500 Internal Server Error
+        // public Employee findById(Long id){
+        //    return repository.findById(id)
+        //        .orElseThrow(() -> new EntityNotFoundException("Employee not found"));
+        //}
     }
 }
