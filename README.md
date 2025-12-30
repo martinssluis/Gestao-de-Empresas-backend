@@ -1,6 +1,16 @@
 # Gestao-de-Empresas-backend
 
-## Estrutura do projeto
+API REST para sistema de gestão de empresas desenvolvida com Spring Boot, seguindo arquitetura em camadas.
+
+## 🚀 Tecnologias
+
+- **Java 21**
+- **Spring Boot 3.5.7**
+- **Spring Data JPA**
+- **H2 Database** (desenvolvimento)
+- **Maven**
+
+## 📂 Estrutura do Projeto e Pastas Principais
 
 ```
 ├── 📁 backend
@@ -24,6 +34,16 @@
 │   │   │   │   └── 📁 com
 │   │   │   │       └── 📁 aceleradev
 │   │   │   │           └── 📁 backend
+│   │   │   │               ├── 📁 config
+│   │   │   │               │   └── ☕ TestConfig.java
+│   │   │   │               ├── 📁 entities
+│   │   │   │               │   └── ☕ Client.java
+│   │   │   │               ├── 📁 repositories
+│   │   │   │               │   └── ☕ ClientRepository.java
+│   │   │   │               ├── 📁 resources
+│   │   │   │               │   └── ☕ ClientResource.java
+│   │   │   │               ├── 📁 services
+│   │   │   │               │   └── ☕ ClientService.java
 │   │   │   │               └── ☕ BackendApplication.java
 │   │   │   └── 📁 resources
 │   │   │       ├── 📁 static
@@ -57,45 +77,73 @@
 └── 📝 README.md
 ```
 
+### **`backend/`**
+Pasta raiz do projeto backend em Java com Spring Boot e Maven.
 
-### Pastas principais
+### **`backend/src/main/java/com/aceleradev/backend/`**
+Contém o código-fonte principal da aplicação Spring Boot, organizado em camadas:
 
-- **`backend/`**  
-  Pasta raiz do projeto backend em Java com Spring Boot e Maven.
+- **`BackendApplication.java`** - Classe principal da aplicação, ponto de entrada (`main`) do Spring Boot
 
-- **`backend/src/main/java/com/aceleradev/backend/`**  
-  Contém o código-fonte principal da aplicação Spring Boot.
-    - **`BackendApplication.java`**: classe principal da aplicação, ponto de entrada (`main`) do Spring Boot.
+- **📦 `entities/`** - Entidades JPA que representam as tabelas do banco de dados
+  - `Client.java` - Entidade cliente com anotações JPA (@Entity, @Id, @GeneratedValue)
 
-- **`backend/src/main/resources/`**  
-  Contém arquivos de configuração e recursos da aplicação.
-    - **`application.properties` / `application.yml`**: arquivos de configuração da aplicação (banco de dados, portas, profiles etc).
-    - **`application-test.properties`**: configurações específicas para o ambiente de teste.
-    - **`static/`**: arquivos estáticos (CSS, JS, imagens), se necessário.
-    - **`templates/`**: templates de visualização (por exemplo, Thymeleaf), se utilizados.
+- **🗄️ `repositories/`** - Interfaces que estendem JpaRepository para operações de banco de dados
+  - `ClientRepository.java` - Repositório para operações CRUD de Client
 
-- **`backend/src/test/java/com/aceleradev/backend/`**  
-  Contém os testes automatizados da aplicação.
-    - **`BackendApplicationTests.java`**: classe de testes base da aplicação.
+- **💼 `services/`** - Camada de lógica de negócio com injeção de dependências
+  - `ClientService.java` - Serviços relacionados ao Client
 
-- **`backend/.mvn/`**  
-  Arquivos relacionados ao Maven Wrapper, permitindo rodar o projeto sem Maven instalado globalmente.
-    - **`maven-wrapper.properties`**: configurações do Maven Wrapper.
+- **🌐 `resources/`** - Controllers REST que expõem os endpoints da API
+  - `ClientResource.java` - Endpoints REST para Client
 
-- **`backend/pom.xml`**  
-  Arquivo de configuração Maven principal do projeto. Define dependências, plugins e configurações de build.
+- **⚙️ `config/`** - Classes de configuração da aplicação (database seeding, beans, etc)
 
-- **`backend/Gestao-De-Empresas/`**  
-  Projeto Maven adicional (módulo) com sua própria estrutura `src` e `pom.xml`. Pode ser um módulo antigo, um experimento ou um subprojeto relacionado à gestão de empresas.
+### **`backend/src/main/resources/`**
+Contém arquivos de configuração e recursos da aplicação:
+- **`application.properties`** / **`application.yml`** - Arquivos de configuração da aplicação (banco de dados, portas, profiles etc)
+- **`application-test.properties`** - Configurações específicas para o ambiente de teste
+- **`static/`** - Arquivos estáticos (CSS, JS, imagens), se necessário
+- **`templates/`** - Templates de visualização (por exemplo, Thymeleaf), se utilizados
 
-- **`backend/untitled/`**  
-  Outro projeto Maven separado, possivelmente criado para testes/investigações. Também possui sua própria estrutura `src` e `pom.xml`.
+### **`backend/src/test/java/com/aceleradev/backend/`**
+Contém os testes automatizados da aplicação:
+- **`BackendApplicationTests.java`** - Classe de testes base da aplicação
 
-- **`.gitignore` / `.gitattributes`**  
-  Arquivos de configuração do Git para ignorar arquivos/pastas e ajustar atributos de commits.
+### **`backend/.mvn/`**
+Arquivos relacionados ao Maven Wrapper, permitindo rodar o projeto sem Maven instalado globalmente:
+- **`maven-wrapper.properties`** - Configurações do Maven Wrapper
 
-- **`mvnw` / `mvnw.cmd`**  
-  Scripts do Maven Wrapper para rodar o Maven via linha de comando em Linux/Mac (`mvnw`) ou Windows (`mvnw.cmd`).
+### **`backend/pom.xml`**
+Arquivo de configuração Maven principal do projeto. Define dependências, plugins e configurações de build.
 
-- **`README.md`**  
-  Arquivo de documentação principal do projeto. Contém visão geral, instruções de uso e detalhes da estrutura.
+### **`backend/Gestao-De-Empresas/`**
+Projeto Maven adicional (módulo) com sua própria estrutura `src` e `pom.xml`. Pode ser um módulo antigo, um experimento ou um subprojeto relacionado à gestão de empresas.
+
+### **`backend/untitled/`**
+Outro projeto Maven separado, possivelmente criado para testes/investigações. Também possui sua própria estrutura `src` e `pom.xml`.
+
+### **Arquivos de Configuração na Raiz:**
+- **`.gitignore`** / **`.gitattributes`** - Arquivos de configuração do Git para ignorar arquivos/pastas e ajustar atributos de commits
+- **`mvnw`** / **`mvnw.cmd`** - Scripts do Maven Wrapper para rodar o Maven via linha de comando em Linux/Mac (`mvnw`) ou Windows (`mvnw.cmd`)
+- **`README.md`** - Arquivo de documentação principal do projeto
+
+## 📌 Sistema de Gestão para Pequenas e Médias Empresas
+A ideia é desenvolver um sistema de gestão voltado para pequenas e médias empresas, facilitando o controle e a organização das principais operações do negócio.
+
+## 🧱 Primeira Etapa: Base do Sistema (CRUD)
+Na primeira etapa, o foco será construir a base do sistema, incluindo:
+
+- Cadastro e gerenciamento de produtos  
+- Registro de entradas e saídas  
+- Controle de estoque e movimentações internas  
+- Visualização de informações essenciais do dia a dia  
+
+Essa estrutura formará um grande **CRUD** (Create, Read, Update, Delete), que servirá como alicerce do projeto.
+
+## 🔄 Próximas Etapas
+Após essa fase, poderemos avançar para a implementação de regras de negócio mais completas, como relatórios, indicadores, automações e outras funcionalidades que tornem o sistema mais inteligente e útil.
+
+## 🎯 Resultado Esperado
+
+O objetivo final é entregar uma ferramenta intuitiva, eficiente e que ajude quem administra um negócio a ter mais controle, organização e clareza — além de fortalecer nosso portfólio e gerar conteúdo relevante para apresentar em entrevistas.
