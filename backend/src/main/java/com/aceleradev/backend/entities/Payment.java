@@ -1,5 +1,6 @@
 package com.aceleradev.backend.entities;
 
+import com.aceleradev.backend.entities.enums.PaymentMethod;
 import jakarta.persistence.*;
 
 import java.time.ZonedDateTime;
@@ -11,6 +12,9 @@ public class Payment {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long paymentId;
+    private ZonedDateTime moment;
+    private double amountPaid;
+    private PaymentMethod paymentMethod;
     @OneToOne
     @JoinColumn(name="order_id")
     private int orderId; // --CLASSE ORDER
@@ -23,12 +27,12 @@ public class Payment {
         this.paymentId = paymentId;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public ZonedDateTime getMoment() {
+        return moment;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setMoment(ZonedDateTime moment) {
+        this.moment = moment;
     }
 
     public double getAmountPaid() {
@@ -39,16 +43,19 @@ public class Payment {
         this.amountPaid = amountPaid;
     }
 
-    public ZonedDateTime getMoment() {
-        return moment;
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setMoment(ZonedDateTime moment) {
-        this.moment = moment;
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
-    private double amountPaid;
-    private ZonedDateTime moment;
+    public int getOrderId() {
+        return orderId;
+    }
 
-
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
 }
