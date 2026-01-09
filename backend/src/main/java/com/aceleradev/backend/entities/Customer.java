@@ -3,17 +3,16 @@ package com.aceleradev.backend.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 @Table(name = "tb_costumer")
-public class Costumer extends User {
+public class Customer extends User {
 
-    public Costumer(){
+    public Customer(){
         super();
     }
 
-    public Costumer(
+    public Customer(
             Long id,
             String name,
             String password,

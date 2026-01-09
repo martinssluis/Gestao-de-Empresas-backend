@@ -1,8 +1,7 @@
 package com.aceleradev.backend.config;
 
-import com.aceleradev.backend.entities.Costumer;
+import com.aceleradev.backend.entities.Customer;
 import com.aceleradev.backend.entities.Employee;
-import com.aceleradev.backend.entities.User;
 import com.aceleradev.backend.entities.enums.Role;
 import com.aceleradev.backend.repositories.CostumerRepository;
 import com.aceleradev.backend.repositories.EmployeeRepository;
@@ -26,7 +25,7 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception{
-        Costumer c1 = new Costumer(null, "PC The One", "senha123", true, "12982228898",
+        Customer c1 = new Customer(null, "PC The One", "senha123", true, "12982228898",
                 "pctheone@email.com", "00000000001", "O Melhorzin que tá tendo",
                 LocalDate.now(), LocalDate.now());
 
