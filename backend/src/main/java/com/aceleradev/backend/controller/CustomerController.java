@@ -1,7 +1,7 @@
-package com.aceleradev.backend.resources;
+package com.aceleradev.backend.controller;
 
-import com.aceleradev.backend.entities.Costumer;
-import com.aceleradev.backend.services.CostumerService;
+import com.aceleradev.backend.entities.Customer;
+import com.aceleradev.backend.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,20 +13,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/costumer")
-public class CostumerResource {
+public class CustomerController {
 
     @Autowired
-    private CostumerService service;
+    private CustomerService service;
 
     @GetMapping
-    public ResponseEntity<List<Costumer>> findAll(){ // Considerar usar o Page<>()
-        List<Costumer> list = service.findAll();
+    public ResponseEntity<List<Customer>> findAll(){ // Considerar usar o Page<>()
+        List<Customer> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping("/{id}") // Não precisa usar o value
-    public ResponseEntity<Costumer> findById(@PathVariable Long id){
-        Costumer obj = service.findById(id);
+    public ResponseEntity<Customer> findById(@PathVariable Long id){
+        Customer obj = service.findById(id);
         return ResponseEntity.ok().body(obj); // Considerar usar os DTOs para retorno e parâmetro
     }
 }

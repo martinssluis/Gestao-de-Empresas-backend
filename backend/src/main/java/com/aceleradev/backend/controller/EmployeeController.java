@@ -1,4 +1,4 @@
-package com.aceleradev.backend.resources;
+package com.aceleradev.backend.controller;
 
 import com.aceleradev.backend.entities.Employee;
 import com.aceleradev.backend.services.EmployeeService;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
-public class EmployeeResource {
+public class EmployeeController {
 
     @Autowired
     private EmployeeService service;

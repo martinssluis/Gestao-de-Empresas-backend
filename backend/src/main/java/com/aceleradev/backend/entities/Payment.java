@@ -2,9 +2,7 @@ package com.aceleradev.backend.entities;
 
 import com.aceleradev.backend.entities.enums.PaymentMethod;
 import jakarta.persistence.*;
-
 import java.time.ZonedDateTime;
-import java.util.Random;
 
 @Entity
 @Table(name = "tb_payment")
@@ -16,8 +14,8 @@ public class Payment {
     private double amountPaid;
     private PaymentMethod paymentMethod;
     @OneToOne
-    @JoinColumn(name="order_id")
-    private int orderId; // --CLASSE ORDER
+    @JoinColumn(name="orderId")
+    private Order orderId;
 
     public Long getPaymentId() {
         return paymentId;
@@ -51,11 +49,11 @@ public class Payment {
         this.paymentMethod = paymentMethod;
     }
 
-    public int getOrderId() {
+    public Order getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Order orderId) {
         this.orderId = orderId;
     }
 }

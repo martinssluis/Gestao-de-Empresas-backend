@@ -1,6 +1,6 @@
 package com.aceleradev.backend.services;
 
-import com.aceleradev.backend.entities.Costumer;
+import com.aceleradev.backend.entities.Customer;
 import com.aceleradev.backend.repositories.CostumerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CostumerService {
+public class CustomerService {
 
     @Autowired
     private CostumerRepository repository;
 
-    public List<Costumer> findAll(){
+    public List<Customer> findAll(){
         return repository.findAll();
     }
 
-    public Costumer findById(Long id){
-        Costumer obj = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found")); // Verificação para evitar o uso do .get() no retorno
+    public Customer findById(Long id){
+        Customer obj = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found")); // Verificação para evitar o uso do .get() no retorno
         return obj;
     }
 }
