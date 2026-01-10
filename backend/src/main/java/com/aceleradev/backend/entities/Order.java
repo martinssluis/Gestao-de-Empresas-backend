@@ -1,5 +1,6 @@
 package com.aceleradev.backend.entities;
 
+import com.aceleradev.backend.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 
 import java.time.ZonedDateTime;
@@ -12,13 +13,23 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
     private ZonedDateTime moment;
-    private String orderStatus;
+    private Integer orderStatus;
     @OneToOne
     @JoinColumn(name="customerId")
     private Customer customerId;
     @OneToOne
     @JoinColumn(name="id")
     private Employee employeeId;
+
+    public Order(){}
+
+    public Order(int orderId, ZonedDateTime moment,OrderStatus orderStatus, Customer customerId, Employee employeeId) {
+        this.orderId = orderId;
+        this.moment = moment;
+        setOrderStatus(orderStatus);
+        this.customerId = customerId;
+        this.employeeId = employeeId;
+    }
 
     public Employee getEmployeeId() {
         return employeeId;
@@ -36,12 +47,14 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
+    public OrderStatus getOrderStatus() {
+        return OrderStatus.valueOf(orderStatus);
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setOrderStatus(OrderStatus orderStatus) {
+        if(orderStatus != null){
+         this.orderStatus = orderStatus.getCode();
+        }
     }
 
     public ZonedDateTime getMoment() {
