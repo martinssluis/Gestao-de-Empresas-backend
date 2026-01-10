@@ -1,5 +1,6 @@
 package com.aceleradev.backend.services;
 
+import com.aceleradev.backend.commons.dto.CustomerDto;
 import com.aceleradev.backend.repositories.entities.Customer;
 import com.aceleradev.backend.repositories.interfaces.CostumerRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -20,5 +21,9 @@ public class CustomerService {
 
     public Customer findById(Long id) {
         return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found"));
+    }
+
+    public void createCustomer(CustomerDto customerDto){
+        repository.save(customerDto.toEntity());
     }
 }
