@@ -1,10 +1,10 @@
 package com.aceleradev.backend.config;
 
-import com.aceleradev.backend.entities.Customer;
-import com.aceleradev.backend.entities.Employee;
-import com.aceleradev.backend.entities.enums.Role;
-import com.aceleradev.backend.repositories.CostumerRepository;
-import com.aceleradev.backend.repositories.EmployeeRepository;
+import com.aceleradev.backend.repositories.entities.Customer;
+import com.aceleradev.backend.repositories.entities.Employee;
+import com.aceleradev.backend.commons.enums.Role;
+import com.aceleradev.backend.repositories.interfaces.CostumerRepository;
+import com.aceleradev.backend.repositories.interfaces.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;

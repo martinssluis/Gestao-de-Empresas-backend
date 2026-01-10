@@ -1,6 +1,6 @@
 package com.aceleradev.backend.controller;
 
-import com.aceleradev.backend.entities.Customer;
+import com.aceleradev.backend.repositories.entities.Customer;
 import com.aceleradev.backend.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

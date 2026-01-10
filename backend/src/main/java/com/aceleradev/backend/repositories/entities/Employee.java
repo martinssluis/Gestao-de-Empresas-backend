@@ -1,11 +1,10 @@
-package com.aceleradev.backend.entities;
+package com.aceleradev.backend.repositories.entities;
 
-import com.aceleradev.backend.entities.enums.Role;
+import com.aceleradev.backend.commons.enums.Role;
 import jakarta.persistence.*;
 
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 @Table(name = "tb_employee")
