@@ -1,4 +1,4 @@
-package com.aceleradev.backend.entities;
+package com.aceleradev.backend.repositories.entities;
 
 import jakarta.persistence.*;
 

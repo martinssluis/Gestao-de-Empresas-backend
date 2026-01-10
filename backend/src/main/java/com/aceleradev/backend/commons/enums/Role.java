@@ -1,4 +1,4 @@
-package com.aceleradev.backend.entities.enums;
+package com.aceleradev.backend.commons.enums;
 
 public enum Role {
     VENDEDOR(1),

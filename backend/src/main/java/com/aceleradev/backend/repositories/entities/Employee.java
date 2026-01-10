@@ -1,11 +1,10 @@
-package com.aceleradev.backend.entities;
+package com.aceleradev.backend.repositories.entities;
 
-import com.aceleradev.backend.entities.enums.Role;
+import com.aceleradev.backend.commons.enums.Role;
 import jakarta.persistence.*;
 
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 @Table(name = "tb_employee")
@@ -23,7 +22,7 @@ public class Employee extends User{
                     Instant lastLogin, Role role, Double baseSalary) {
 
         super(id, name, password, isActive, phoneNumber, email,
-                identifier, description, createdAt, lastLogin);
+                 description, createdAt, lastLogin);
         setRole(role);
         this.baseSalary = baseSalary;
 
@@ -48,5 +47,5 @@ public class Employee extends User{
     public void setBaseSalary(Double baseSalary) {
         this.baseSalary = baseSalary;
     }
-    
+
 }

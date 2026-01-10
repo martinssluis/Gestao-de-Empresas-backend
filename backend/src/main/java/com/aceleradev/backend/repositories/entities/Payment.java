@@ -1,6 +1,6 @@
-package com.aceleradev.backend.entities;
+package com.aceleradev.backend.repositories.entities;
 
-import com.aceleradev.backend.entities.enums.PaymentMethod;
+import com.aceleradev.backend.commons.enums.PaymentMethod;
 import jakarta.persistence.*;
 import java.time.ZonedDateTime;
 
