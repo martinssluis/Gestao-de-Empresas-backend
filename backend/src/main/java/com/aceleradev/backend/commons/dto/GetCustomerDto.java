@@ -1,12 +1,9 @@
 package com.aceleradev.backend.commons.dto;
 
-import com.aceleradev.backend.repositories.entities.Customer;
-
 import java.time.LocalDate;
 
-public class CustomerDto {
+public class GetCustomerDto {
     public String name;
-    public String password;
     public Boolean isActive;
     public String phoneNumber;
     public String email;
@@ -20,14 +17,6 @@ public class CustomerDto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Boolean getActive() {
@@ -78,16 +67,4 @@ public class CustomerDto {
         this.lastLogin = lastLogin;
     }
 
-
-    public Customer toEntity(){
-        Customer customerToEntity = new Customer();
-        customerToEntity.setName(this.name);
-        customerToEntity.setPassword(this.password);
-        customerToEntity.setPhoneNumber(this.phoneNumber);
-        customerToEntity.setEmail(this.email);
-        customerToEntity.setDescription(this.description);
-        customerToEntity.setCreatedAt(this.createdAt);
-        customerToEntity.setIdentifier(this.identifier);
-        return customerToEntity;
-    }
 }

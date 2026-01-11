@@ -1,13 +1,16 @@
 package com.aceleradev.backend.services;
 
-import com.aceleradev.backend.commons.dto.CustomerDto;
+import com.aceleradev.backend.commons.dto.CreateCustomerDto;
+import com.aceleradev.backend.commons.dto.GetCustomerDto;
 import com.aceleradev.backend.repositories.entities.Customer;
 import com.aceleradev.backend.repositories.interfaces.CostumerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CustomerService {
@@ -15,15 +18,48 @@ public class CustomerService {
     @Autowired
     private CostumerRepository repository;
 
-    public List<Customer> findAll() {
-        return repository.findAll();
+    public List<GetCustomerDto> findAll() {
+        List<Customer> customers = repository.findAll();
+        return customers
+                .stream()
+                .map(c -> {
+                            GetCustomerDto customerDto = new GetCustomerDto();
+                            customerDto.setName(c.getName());
+                            customerDto.setDescription(c.getDescription());
+                            customerDto.setActive(c.getActive());
+                            customerDto.setEmail(c.getEmail());
+                            customerDto.setPhoneNumber(c.getPhoneNumber());
+                            customerDto.setCreatedAt(c.getCreatedAt());
+                            return customerDto;
+                        }
+                ).toList();
     }
 
-    public Customer findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found"));
+    public GetCustomerDto findById(Long id) {
+        GetCustomerDto customerDto = new GetCustomerDto();
+        Customer customerRepository = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found"));
+        customerDto.setName(customerDto.getName());
+        customerDto.setDescription(customerDto.getDescription());
+        customerDto.setActive(customerDto.getActive());
+        customerDto.setEmail(customerDto.getEmail());
+        customerDto.setPhoneNumber(customerDto.getPhoneNumber());
+        customerDto.setCreatedAt(customerDto.getCreatedAt());
+        return customerDto;
     }
 
-    public void createCustomer(CustomerDto customerDto){
-        repository.save(customerDto.toEntity());
+    public void createCustomer(CreateCustomerDto customerDto) {
+        Customer customerEntity = new Customer();
+        UUID defineIdentifier = UUID.randomUUID();
+
+        customerEntity.setName(customerDto.getName());
+        customerEntity.setPassword(customerDto.getPassword());
+        customerEntity.setActive(customerDto.getActive());
+        customerEntity.setCreatedAt(LocalDate.now());
+        customerEntity.setPhoneNumber(customerDto.getPhoneNumber());
+        customerEntity.setEmail(customerDto.getEmail());
+        customerEntity.setDescription(customerDto.getDescription());
+        customerEntity.setIdentifier(defineIdentifier.toString());
+
+        repository.save(customerEntity);
     }
 }

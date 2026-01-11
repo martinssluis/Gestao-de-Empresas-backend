@@ -34,6 +34,7 @@ public class TestConfig implements CommandLineRunner {
                 LocalDate.parse("2019-07-21"), Instant.now(),
                 Role.GERENTE, 6500.00);
 
+
         costumerRepository.save(c1);
         employeeRepository.save(e1);
         //employeeRepository.saveAll(List.of(e1));  List.of() no lugar de asList() pois temos apenas um parâmetro sendo passado

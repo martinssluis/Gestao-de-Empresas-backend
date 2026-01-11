@@ -21,7 +21,7 @@ public class Employee extends User{
                     String description, LocalDate createdAt,
                     Instant lastLogin, Role role, Double baseSalary) {
 
-        super(id, name, password, isActive, phoneNumber, email,
+        super(id, name, password, isActive, phoneNumber, email, identifier,
                  description, createdAt, lastLogin);
         setRole(role);
         this.baseSalary = baseSalary;
