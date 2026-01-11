@@ -1,10 +1,12 @@
 package com.aceleradev.backend.repositories.entities;
 
+import com.aceleradev.backend.commons.enums.ProductCategory;
+import com.aceleradev.backend.commons.enums.Role;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "tb_product")
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,13 +15,28 @@ public class Product {
 
     private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private ProductCategory category;
+    private int category;
 
     public Product() {
     }
 
+    public Product(Long id, String name, Double price, ProductCategory category) {
+        this.id = id;
+        setName(name);
+        setPrice(price);
+        setCategory(category);
+    }
+    public ProductCategory getRole() {
+
+        return ProductCategory.valueOf(category);
+    }
+
+    public void setCategory(ProductCategory category) {
+        if (category != null){
+            this.category = category.getCode();
+        }
+
+    }
     public Long getId() {
         return id;
     }
@@ -32,7 +49,7 @@ public class Product {
         return price;
     }
 
-    public ProductCategory getCategory() {
+    public int getCategory() {
         return category;
     }
 
@@ -48,7 +65,5 @@ public class Product {
         this.price = price;
     }
 
-    public void setCategory(ProductCategory category) {
-        this.category = category;
-    }
+
 }

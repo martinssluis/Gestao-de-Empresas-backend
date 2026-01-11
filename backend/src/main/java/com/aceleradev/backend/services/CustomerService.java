@@ -38,12 +38,12 @@ public class CustomerService {
     public GetCustomerDto findById(Long id) {
         GetCustomerDto customerDto = new GetCustomerDto();
         Customer customerRepository = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found"));
-        customerDto.setName(customerDto.getName());
-        customerDto.setDescription(customerDto.getDescription());
-        customerDto.setActive(customerDto.getActive());
-        customerDto.setEmail(customerDto.getEmail());
-        customerDto.setPhoneNumber(customerDto.getPhoneNumber());
-        customerDto.setCreatedAt(customerDto.getCreatedAt());
+        customerDto.setName(customerRepository.getName());
+        customerDto.setDescription(customerRepository.getDescription());
+        customerDto.setActive(customerRepository.getActive());
+        customerDto.setEmail(customerRepository.getEmail());
+        customerDto.setPhoneNumber(customerRepository.getPhoneNumber());
+        customerDto.setCreatedAt(customerRepository.getCreatedAt());
         return customerDto;
     }
 

@@ -1,10 +1,13 @@
 package com.aceleradev.backend.config;
 
+import com.aceleradev.backend.commons.enums.ProductCategory;
 import com.aceleradev.backend.repositories.entities.Customer;
 import com.aceleradev.backend.repositories.entities.Employee;
 import com.aceleradev.backend.commons.enums.Role;
+import com.aceleradev.backend.repositories.entities.Product;
 import com.aceleradev.backend.repositories.interfaces.CostumerRepository;
 import com.aceleradev.backend.repositories.interfaces.EmployeeRepository;
+import com.aceleradev.backend.repositories.interfaces.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +25,8 @@ public class TestConfig implements CommandLineRunner {
     private CostumerRepository costumerRepository;
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public void run(String... args) throws Exception{
@@ -34,9 +39,16 @@ public class TestConfig implements CommandLineRunner {
                 LocalDate.parse("2019-07-21"), Instant.now(),
                 Role.GERENTE, 6500.00);
 
+        Product mouse = new Product(
+                null,
+                "Mouse Logitech MX",
+                299.90,
+                ProductCategory.GAMES
+        );
 
         costumerRepository.save(c1);
         employeeRepository.save(e1);
+        productRepository.save(mouse);
         //employeeRepository.saveAll(List.of(e1));  List.of() no lugar de asList() pois temos apenas um parâmetro sendo passado
     }
 }
