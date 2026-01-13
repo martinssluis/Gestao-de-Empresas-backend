@@ -1,6 +1,6 @@
-package com.aceleradev.backend.repositories.entities;
+package com.aceleradev.backend.entities;
 
-import com.aceleradev.backend.repositories.entities.pk.OrderItemPK;
+import com.aceleradev.backend.entities.pk.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

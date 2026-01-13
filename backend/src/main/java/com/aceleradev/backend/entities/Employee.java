@@ -1,4 +1,4 @@
-package com.aceleradev.backend.repositories.entities;
+package com.aceleradev.backend.entities;
 
 import com.aceleradev.backend.commons.enums.Role;
 import jakarta.persistence.*;
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "tb_employee")
-public class Employee extends User{
+public class Employee extends User {
 
     private Integer role;
     private Double baseSalary;

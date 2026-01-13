@@ -1,7 +1,7 @@
-package com.aceleradev.backend.repositories.entities.pk;
+package com.aceleradev.backend.entities.pk;
 
-import com.aceleradev.backend.repositories.entities.Order;
-import com.aceleradev.backend.repositories.entities.Product;
+import com.aceleradev.backend.entities.Order;
+import com.aceleradev.backend.entities.Product;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;

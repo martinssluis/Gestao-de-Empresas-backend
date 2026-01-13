@@ -1,6 +1,6 @@
-package com.aceleradev.backend.repositories.interfaces;
+package com.aceleradev.backend.repositories;
 
-import com.aceleradev.backend.repositories.entities.Employee;
+import com.aceleradev.backend.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

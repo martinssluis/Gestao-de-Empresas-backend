@@ -1,8 +1,7 @@
-package com.aceleradev.backend.controller;
+package com.aceleradev.backend.controllers;
 
 import com.aceleradev.backend.commons.dto.CreateCustomerDto;
 import com.aceleradev.backend.commons.dto.GetCustomerDto;
-import com.aceleradev.backend.repositories.entities.Customer;
 import com.aceleradev.backend.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

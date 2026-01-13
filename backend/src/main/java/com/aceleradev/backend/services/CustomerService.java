@@ -2,8 +2,8 @@ package com.aceleradev.backend.services;
 
 import com.aceleradev.backend.commons.dto.CreateCustomerDto;
 import com.aceleradev.backend.commons.dto.GetCustomerDto;
-import com.aceleradev.backend.repositories.entities.Customer;
-import com.aceleradev.backend.repositories.interfaces.CostumerRepository;
+import com.aceleradev.backend.entities.Customer;
+import com.aceleradev.backend.repositories.CostumerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

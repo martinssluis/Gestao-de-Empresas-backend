@@ -1,10 +1,10 @@
-package com.aceleradev.backend.entities.enums;
+package com.aceleradev.backend.commons.enums;
 
 public enum PaymentStatus {
 
-    CONCLUIDO(1),
-    CANCELADO(2),
-    PENDENTE(3);
+    COMPLETED(1),
+    CANCELED(2),
+    PENDING(3);
 
     private int code;
 

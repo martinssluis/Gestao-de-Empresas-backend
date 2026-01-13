@@ -1,7 +1,6 @@
-package com.aceleradev.backend.repositories.entities;
+package com.aceleradev.backend.entities;
 
 import com.aceleradev.backend.commons.enums.ProductCategory;
-import com.aceleradev.backend.commons.enums.Role;
 import jakarta.persistence.*;
 
 @Entity
