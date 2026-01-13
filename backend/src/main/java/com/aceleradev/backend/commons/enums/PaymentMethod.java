@@ -1,6 +1,7 @@
 package com.aceleradev.backend.commons.enums;
 
 public enum PaymentMethod {
+
     PIX(1),
     CREDIT(2),
     DEBIT(3);

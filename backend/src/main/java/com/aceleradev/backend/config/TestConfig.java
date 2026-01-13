@@ -1,13 +1,13 @@
 package com.aceleradev.backend.config;
 
 import com.aceleradev.backend.commons.enums.ProductCategory;
-import com.aceleradev.backend.repositories.entities.Customer;
-import com.aceleradev.backend.repositories.entities.Employee;
+import com.aceleradev.backend.entities.Customer;
+import com.aceleradev.backend.entities.Employee;
 import com.aceleradev.backend.commons.enums.Role;
-import com.aceleradev.backend.repositories.entities.Product;
-import com.aceleradev.backend.repositories.interfaces.CostumerRepository;
-import com.aceleradev.backend.repositories.interfaces.EmployeeRepository;
-import com.aceleradev.backend.repositories.interfaces.ProductRepository;
+import com.aceleradev.backend.entities.Product;
+import com.aceleradev.backend.repositories.CostumerRepository;
+import com.aceleradev.backend.repositories.EmployeeRepository;
+import com.aceleradev.backend.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -37,7 +37,7 @@ public class TestConfig implements CommandLineRunner {
         Employee e1 = new Employee(null, "Martins Luis", "senhaLuis123", true, "61982456789",
                 "martinsluis@email.com","00000000001", "Garoto Prodigio",
                 LocalDate.parse("2019-07-21"), Instant.now(),
-                Role.GERENTE, 6500.00);
+                Role.MANAGER, 6500.00);
 
         Product mouse = new Product(
                 null,

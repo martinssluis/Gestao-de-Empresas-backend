@@ -1,4 +1,4 @@
-package com.aceleradev.backend.repositories.entities;
+package com.aceleradev.backend.entities;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

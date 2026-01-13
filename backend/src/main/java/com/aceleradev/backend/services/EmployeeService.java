@@ -1,7 +1,7 @@
 package com.aceleradev.backend.services;
 
-import com.aceleradev.backend.repositories.entities.Employee;
-import com.aceleradev.backend.repositories.interfaces.EmployeeRepository;
+import com.aceleradev.backend.entities.Employee;
+import com.aceleradev.backend.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

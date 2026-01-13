@@ -1,7 +1,8 @@
 package com.aceleradev.backend.commons.enums;
 
 public enum ProductCategory {
-    LIVRO(1),
+
+    BOOK(1),
     GAMES(2),
     OTHER(3);
 
