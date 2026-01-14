@@ -26,7 +26,7 @@ public class Order {
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL) // mapeando as entidades para terem o mesmo id
+    @OneToOne(mappedBy = "orderId", cascade = CascadeType.ALL) // mapeando as entidades para terem o mesmo id
     private Payment payment;
 
     public Order(){}
