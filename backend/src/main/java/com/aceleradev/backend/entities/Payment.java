@@ -17,6 +17,16 @@ public class Payment {
     @JoinColumn(name="orderId")
     private Order orderId;
 
+    public Payment(){}
+
+    public Payment(Long paymentId, ZonedDateTime moment, double amountPaid, PaymentMethod paymentMethod, Order orderId) {
+        this.paymentId = paymentId;
+        this.moment = moment;
+        this.amountPaid = amountPaid;
+        this.paymentMethod = paymentMethod;
+        this.orderId = orderId;
+    }
+
     public Long getPaymentId() {
         return paymentId;
     }

@@ -1,13 +1,11 @@
 package com.aceleradev.backend.config;
 
+import com.aceleradev.backend.commons.enums.OrderStatus;
+import com.aceleradev.backend.commons.enums.PaymentMethod;
 import com.aceleradev.backend.commons.enums.ProductCategory;
-import com.aceleradev.backend.entities.Customer;
-import com.aceleradev.backend.entities.Employee;
+import com.aceleradev.backend.entities.*;
 import com.aceleradev.backend.commons.enums.Role;
-import com.aceleradev.backend.entities.Product;
-import com.aceleradev.backend.repositories.CostumerRepository;
-import com.aceleradev.backend.repositories.EmployeeRepository;
-import com.aceleradev.backend.repositories.ProductRepository;
+import com.aceleradev.backend.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +13,7 @@ import org.springframework.context.annotation.Profile;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 
 @Configuration
@@ -27,6 +26,10 @@ public class TestConfig implements CommandLineRunner {
     private EmployeeRepository employeeRepository;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private OrderRepository orderRepository;
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     @Override
     public void run(String... args) throws Exception{
@@ -46,9 +49,19 @@ public class TestConfig implements CommandLineRunner {
                 ProductCategory.GAMES
         );
 
+        Order o1 = new Order(null, ZonedDateTime.now(), OrderStatus.PAID, c1, e1);
+
+        OrderItem oi1 = new OrderItem(o1, mouse, 2, mouse.getPrice());
+
         costumerRepository.save(c1);
         employeeRepository.save(e1);
         productRepository.save(mouse);
+        orderRepository.save(o1);
+
+        Payment pay1 = new Payment(null, ZonedDateTime.now(), 299.90, PaymentMethod.PIX, o1);
+        o1.setPayment(pay1);
+
+        orderRepository.save(o1);
         //employeeRepository.saveAll(List.of(e1));  List.of() no lugar de asList() pois temos apenas um parâmetro sendo passado
     }
 }
