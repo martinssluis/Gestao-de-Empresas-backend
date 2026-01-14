@@ -47,7 +47,7 @@ public class CustomerService {
         return customerDto;
     }
 
-    public void createCustomer(CreateCustomerDto customerDto) {
+    public Customer createCustomer(CreateCustomerDto customerDto) {
         Customer customerEntity = new Customer();
         UUID defineIdentifier = UUID.randomUUID();
 
@@ -60,6 +60,8 @@ public class CustomerService {
         customerEntity.setDescription(customerDto.getDescription());
         customerEntity.setIdentifier(defineIdentifier.toString());
 
-        repository.save(customerEntity);
+        //TODO: Fazer mapeamento entre de Entity para DTO para TODOS OS FLUXOS INBOUND(de fora pra dentro)
+
+        return repository.save(customerEntity);
     }
 }
