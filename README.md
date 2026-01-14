@@ -127,3 +127,24 @@ Outro projeto Maven separado, possivelmente criado para testes/investigações. 
 - **`.gitignore`** / **`.gitattributes`** - Arquivos de configuração do Git para ignorar arquivos/pastas e ajustar atributos de commits
 - **`mvnw`** / **`mvnw.cmd`** - Scripts do Maven Wrapper para rodar o Maven via linha de comando em Linux/Mac (`mvnw`) ou Windows (`mvnw.cmd`)
 - **`README.md`** - Arquivo de documentação principal do projeto
+
+## Requests:
+### Cadastro customer:
+
+```
+curl --request POST \
+  --url http://localhost:8080/customer \
+  --header 'Content-Type: application/json' \
+  --cookie JSESSIONID=ACC44BF8A80476737CD798904B846A79 \
+  --data '{
+  "name": "Herick Guimarães",
+  "password": "Senha@123",
+  "isActive": true,
+  "phoneNumber": "+55 11 91234-5678",
+  "email": "herick.guimaraes@email.com",
+  "description": "Usuário programador pleno com foco em back-end",
+  "createdAt": "2024-01-10",
+  "lastLogin": "2026-01-11",
+  "identifier": "USR-9f3a2c7b"
+}'
+```
