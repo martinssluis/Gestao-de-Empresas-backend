@@ -22,8 +22,11 @@ public class Customer extends User {
             String identifier,
             String description,
             LocalDate createdAt,
-            LocalDate lasLogin
+            LocalDate lastLogin
     ){
         super(id, name, password, isActive, phoneNumber, email, identifier, description, createdAt, null);
     }
+
+
+
 }

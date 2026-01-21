@@ -2,15 +2,18 @@ package com.aceleradev.backend.commons.dto;
 
 import java.time.LocalDate;
 
-public class CreateCustomerDto {
+public class UpdateCustomerDto {
 
-    public String name;
-    public String password;
-    public Boolean isActive;
-    public String phoneNumber;
-    public String email;
-    public String description;
-    public LocalDate lastLogin;
+    private Long id;
+    private String name;
+    private Boolean isActive;
+    private String phoneNumber;
+    private String email;
+    private String description;
+
+    public Long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -18,14 +21,6 @@ public class CreateCustomerDto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Boolean getActive() {
@@ -59,13 +54,4 @@ public class CreateCustomerDto {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public LocalDate getLastLogin() {
-        return lastLogin;
-    }
-
-    public void setLastLogin(LocalDate lastLogin) {
-        this.lastLogin = lastLogin;
-    }
-
 }

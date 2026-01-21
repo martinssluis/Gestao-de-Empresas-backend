@@ -3,6 +3,7 @@ package com.aceleradev.backend.commons.dto;
 import java.time.LocalDate;
 
 public class GetCustomerDto {
+
     public String name;
     public Boolean isActive;
     public String phoneNumber;
@@ -11,6 +12,7 @@ public class GetCustomerDto {
     public LocalDate createdAt;
     public LocalDate lastLogin;
     public String identifier;
+
     public String getName() {
         return name;
     }

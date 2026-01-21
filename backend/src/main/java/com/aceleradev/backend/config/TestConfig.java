@@ -21,7 +21,7 @@ import java.time.ZonedDateTime;
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
-    private CostumerRepository costumerRepository;
+    private CustomerRepository customerRepository;
     @Autowired
     private EmployeeRepository employeeRepository;
     @Autowired
@@ -53,7 +53,7 @@ public class TestConfig implements CommandLineRunner {
 
         OrderItem oi1 = new OrderItem(o1, mouse, 2, mouse.getPrice());
 
-        costumerRepository.save(c1);
+        customerRepository.save(c1);
         employeeRepository.save(e1);
         productRepository.save(mouse);
         orderRepository.save(o1);

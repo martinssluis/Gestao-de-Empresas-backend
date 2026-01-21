@@ -2,6 +2,7 @@ package com.aceleradev.backend.controllers;
 
 import com.aceleradev.backend.commons.dto.CreateCustomerDto;
 import com.aceleradev.backend.commons.dto.GetCustomerDto;
+import com.aceleradev.backend.commons.dto.UpdateCustomerDto;
 import com.aceleradev.backend.entities.Customer;
 import com.aceleradev.backend.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class CustomerController {
     private CustomerService service;
 
     @PostMapping
-    public ResponseEntity<Customer> saveCustomer(@RequestBody CreateCustomerDto customerDto) {
+    public ResponseEntity<Customer> createCustomer(@RequestBody CreateCustomerDto customerDto) {
         Customer customer = service.createCustomer(customerDto);
         return ResponseEntity.status(201).body(customer);
     }
@@ -34,4 +35,11 @@ public class CustomerController {
         GetCustomerDto obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody UpdateCustomerDto updateCustomerDto) {
+        Customer updatedCustomer = service.updateCustomer(id, updateCustomerDto);
+        return ResponseEntity.ok(updatedCustomer);
+    }
+
 }
