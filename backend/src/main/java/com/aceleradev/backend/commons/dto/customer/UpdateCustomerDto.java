@@ -1,6 +1,4 @@
-package com.aceleradev.backend.commons.dto;
-
-import java.time.LocalDate;
+package com.aceleradev.backend.commons.dto.customer;
 
 public class UpdateCustomerDto {
 

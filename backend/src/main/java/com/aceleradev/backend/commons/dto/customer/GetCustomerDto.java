@@ -1,4 +1,4 @@
-package com.aceleradev.backend.commons.dto;
+package com.aceleradev.backend.commons.dto.customer;
 
 import java.time.LocalDate;
 
