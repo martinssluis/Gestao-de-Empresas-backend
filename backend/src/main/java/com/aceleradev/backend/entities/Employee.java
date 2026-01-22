@@ -10,22 +10,14 @@ import java.time.LocalDate;
 @Table(name = "tb_employee")
 public class Employee extends User {
 
+    @Column(nullable = false)
     private Integer role;
+    @Column(nullable = false)
     private Double baseSalary;
 
 
-    public Employee(){}
-
-    public Employee(Long id, String name, String password, Boolean isActive,
-                    String phoneNumber, String email, String identifier,
-                    String description, LocalDate createdAt,
-                    Instant lastLogin, Role role, Double baseSalary) {
-
-        super(id, name, password, isActive, phoneNumber, email, identifier,
-                 description, createdAt, lastLogin);
-        setRole(role);
-        this.baseSalary = baseSalary;
-
+    public Employee(){
+        super();
     }
 
     public Role getRole() {
@@ -34,10 +26,10 @@ public class Employee extends User {
     }
 
     public void setRole(Role role) {
-        if (role != null){
-        this.role = role.getCode();
+        if (role == null){
+            throw new IllegalArgumentException("Role cannot be null");
         }
-
+        this.role = role.getCode();
     }
 
     public Double getBaseSalary() {
@@ -45,6 +37,9 @@ public class Employee extends User {
     }
 
     public void setBaseSalary(Double baseSalary) {
+        if (role == null){
+            throw new IllegalArgumentException("Base Salary cannot be null");
+        }
         this.baseSalary = baseSalary;
     }
 

@@ -37,10 +37,18 @@ public class TestConfig implements CommandLineRunner {
                 "pctheone@email.com", "00000000001", "O Melhorzin que tá tendo",
                 LocalDate.now(), LocalDate.now());
 
-        Employee e1 = new Employee(null, "Martins Luis", "senhaLuis123", true, "61982456789",
-                "martinsluis@email.com","00000000001", "Garoto Prodigio",
-                LocalDate.parse("2019-07-21"), Instant.now(),
-                Role.MANAGER, 6500.00);
+        Employee e1 = new Employee();
+        e1.setName("Martins Luis");
+        e1.setPassword("senhaLuis123");
+        e1.setIsActive(true);
+        e1.setPhoneNumber("61982456789");
+        e1.setEmail("martinsluis@email.com");
+        e1.setIdentifier("00000000001");
+        e1.setDescription("Garoto Prodígio");
+        e1.setCreatedAt(LocalDate.parse("2019-07-21"));
+        e1.setLastLogin(Instant.now());
+        e1.setRole(Role.MANAGER);
+        e1.setBaseSalary(6500.00);
 
         Product mouse = new Product(
                 null,
