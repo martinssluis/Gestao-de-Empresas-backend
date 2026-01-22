@@ -40,7 +40,7 @@ public class TestConfig implements CommandLineRunner {
         Employee e1 = new Employee();
         e1.setName("Martins Luis");
         e1.setPassword("senhaLuis123");
-        e1.setActive(true);
+        e1.setIsActive(true);
         e1.setPhoneNumber("61982456789");
         e1.setEmail("martinsluis@email.com");
         e1.setIdentifier("00000000001");

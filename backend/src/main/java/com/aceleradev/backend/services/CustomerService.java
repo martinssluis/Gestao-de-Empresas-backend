@@ -27,7 +27,7 @@ public class CustomerService {
                             GetCustomerDto customerDto = new GetCustomerDto();
                             customerDto.setName(c.getName());
                             customerDto.setDescription(c.getDescription());
-                            customerDto.setActive(c.getActive());
+                            customerDto.setActive(c.getIsActive());
                             customerDto.setEmail(c.getEmail());
                             customerDto.setPhoneNumber(c.getPhoneNumber());
                             customerDto.setCreatedAt(c.getCreatedAt());
@@ -42,7 +42,7 @@ public class CustomerService {
 
         customerDto.setName(customerRepository.getName());
         customerDto.setDescription(customerRepository.getDescription());
-        customerDto.setActive(customerRepository.getActive());
+        customerDto.setActive(customerRepository.getIsActive());
         customerDto.setEmail(customerRepository.getEmail());
         customerDto.setPhoneNumber(customerRepository.getPhoneNumber());
         customerDto.setCreatedAt(customerRepository.getCreatedAt());
@@ -56,7 +56,7 @@ public class CustomerService {
 
         customerEntity.setName(customerDto.getName());
         customerEntity.setPassword(customerDto.getPassword());
-        customerEntity.setActive(customerDto.getActive());
+        customerEntity.setIsActive(customerDto.getActive());
         customerEntity.setCreatedAt(LocalDate.now());
         customerEntity.setPhoneNumber(customerDto.getPhoneNumber());
         customerEntity.setEmail(customerDto.getEmail());
@@ -77,7 +77,7 @@ public class CustomerService {
             if (optionalCustomer.isPresent()) {
                 Customer customer = optionalCustomer.get();
                 customer.setName(customerDto.getName());
-                customer.setActive(customerDto.getActive());
+                customer.setIsActive(customerDto.getActive());
                 customer.setPhoneNumber(customerDto.getPhoneNumber());
                 customer.setEmail(customerDto.getEmail());
                 customer.setDescription(customerDto.getDescription());
@@ -89,3 +89,6 @@ public class CustomerService {
 
         }
 }
+
+// standardized the isActive field across entities and DTOs,
+// so all services were updated to use getIsActive() and setIsActive()
