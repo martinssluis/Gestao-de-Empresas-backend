@@ -1,8 +1,8 @@
 package com.aceleradev.backend.controllers;
 
-import com.aceleradev.backend.commons.dto.CreateCustomerDto;
-import com.aceleradev.backend.commons.dto.GetCustomerDto;
-import com.aceleradev.backend.commons.dto.UpdateCustomerDto;
+import com.aceleradev.backend.commons.dto.customer.CreateCustomerDto;
+import com.aceleradev.backend.commons.dto.customer.GetCustomerDto;
+import com.aceleradev.backend.commons.dto.customer.UpdateCustomerDto;
 import com.aceleradev.backend.entities.Customer;
 import com.aceleradev.backend.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
