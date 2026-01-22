@@ -20,7 +20,6 @@ public class Employee extends User {
         super();
     }
 
-
     public Role getRole() {
 
         return Role.valueOf(role);
