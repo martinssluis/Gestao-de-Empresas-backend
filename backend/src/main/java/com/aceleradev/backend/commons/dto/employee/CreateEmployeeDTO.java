@@ -1,20 +1,23 @@
-package com.aceleradev.backend.commons.dto.emplooyee;
+package com.aceleradev.backend.commons.dto.employee;
 
 import com.aceleradev.backend.commons.enums.Role;
 
 import java.time.LocalDate;
 
-public class CreateEmployeeDto {
+public class CreateEmployeeDTO {
 
     private String name;
     private String password;
     private Boolean isActive;
     private String phoneNumber;
     private String email;
+    private String identifier;
     private String description;
+    private LocalDate createdAt;
     private LocalDate lastLogin;
     private Double baseSalary;
-    private Role roole;
+    private Role role;
+    // sem id pq o banco gera, sem lastLogin pq sistema controla
 
     public String getName() {
         return name;
@@ -32,11 +35,11 @@ public class CreateEmployeeDto {
         this.password = password;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 
@@ -56,6 +59,14 @@ public class CreateEmployeeDto {
         this.email = email;
     }
 
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -64,12 +75,12 @@ public class CreateEmployeeDto {
         this.description = description;
     }
 
-    public LocalDate getLastLogin() {
-        return lastLogin;
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 
-    public void setLastLogin(LocalDate lastLogin) {
-        this.lastLogin = lastLogin;
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Double getBaseSalary() {
@@ -80,11 +91,11 @@ public class CreateEmployeeDto {
         this.baseSalary = baseSalary;
     }
 
-    public Role getRoole() {
-        return roole;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoole(Role roole) {
-        this.roole = roole;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
