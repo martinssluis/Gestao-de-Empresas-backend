@@ -7,6 +7,7 @@ import com.aceleradev.backend.entities.Customer;
 import com.aceleradev.backend.repositories.CustomerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -18,6 +19,9 @@ public class CustomerService {
 
     @Autowired
     private CustomerRepository repository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public List<GetCustomerDto> findAll() {
         List<Customer> customers = repository.findAll();
@@ -53,9 +57,10 @@ public class CustomerService {
     public Customer createCustomer(CreateCustomerDto customerDto) {
         Customer customerEntity = new Customer();
         // UUID defineIdentifier = UUID.randomUUID();
+        String hashPassword = bCryptPasswordEncoder.encode(customerDto.getPassword());
 
         customerEntity.setName(customerDto.getName());
-        customerEntity.setPassword(customerDto.getPassword());
+        customerEntity.setPassword(hashPassword);
         customerEntity.setActive(customerDto.getActive());
         customerEntity.setCreatedAt(LocalDate.now());
         customerEntity.setPhoneNumber(customerDto.getPhoneNumber());
