@@ -10,6 +10,16 @@ public class CreateCustomerDto {
     public String phoneNumber;
     public String email;
     public String description;
+    private String identifier;
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
     public LocalDate lastLogin;
 
     public String getName() {

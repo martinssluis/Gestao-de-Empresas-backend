@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CustomerService {
@@ -52,7 +53,6 @@ public class CustomerService {
 
     public Customer createCustomer(CreateCustomerDto customerDto) {
         Customer customerEntity = new Customer();
-        // UUID defineIdentifier = UUID.randomUUID();
 
         customerEntity.setName(customerDto.getName());
         customerEntity.setPassword(customerDto.getPassword());
@@ -61,7 +61,7 @@ public class CustomerService {
         customerEntity.setPhoneNumber(customerDto.getPhoneNumber());
         customerEntity.setEmail(customerDto.getEmail());
         customerEntity.setDescription(customerDto.getDescription());
-        // customerEntity.setIdentifier(defineIdentifier.toString());
+        customerEntity.setIdentifier(customerDto.getIdentifier());
 
         return repository.save(customerEntity);
     }

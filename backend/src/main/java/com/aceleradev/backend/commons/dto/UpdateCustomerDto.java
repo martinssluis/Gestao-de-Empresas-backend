@@ -3,15 +3,14 @@ package com.aceleradev.backend.commons.dto;
 public class UpdateCustomerDto {
 
     private String name;
-
-    public Boolean getIsActive() {
-        return isActive;
-    }
-
     private Boolean isActive;
     private String phoneNumber;
     private String email;
     private String description;
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
 
     public String getName() {
         return name;
