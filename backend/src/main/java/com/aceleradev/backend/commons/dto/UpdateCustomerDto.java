@@ -21,7 +21,7 @@ public class UpdateCustomerDto {
         this.name = name;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 
