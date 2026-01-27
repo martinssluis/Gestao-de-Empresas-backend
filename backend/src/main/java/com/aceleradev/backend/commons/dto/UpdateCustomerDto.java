@@ -1,19 +1,12 @@
 package com.aceleradev.backend.commons.dto;
 
-import java.time.LocalDate;
-
 public class UpdateCustomerDto {
 
-    private Long id;
     private String name;
     private Boolean isActive;
     private String phoneNumber;
     private String email;
     private String description;
-
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;

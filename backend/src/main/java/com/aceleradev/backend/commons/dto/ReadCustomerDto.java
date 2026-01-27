@@ -2,7 +2,7 @@ package com.aceleradev.backend.commons.dto;
 
 import java.time.LocalDate;
 
-public class GetCustomerDto {
+public class ReadCustomerDto {
 
     public String name;
     public Boolean isActive;

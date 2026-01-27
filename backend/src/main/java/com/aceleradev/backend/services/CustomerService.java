@@ -1,7 +1,7 @@
 package com.aceleradev.backend.services;
 
 import com.aceleradev.backend.commons.dto.CreateCustomerDto;
-import com.aceleradev.backend.commons.dto.GetCustomerDto;
+import com.aceleradev.backend.commons.dto.ReadCustomerDto;
 import com.aceleradev.backend.commons.dto.UpdateCustomerDto;
 import com.aceleradev.backend.entities.Customer;
 import com.aceleradev.backend.repositories.CustomerRepository;
@@ -19,12 +19,12 @@ public class CustomerService {
     @Autowired
     private CustomerRepository repository;
 
-    public List<GetCustomerDto> findAll() {
+    public List<ReadCustomerDto> findAll() {
         List<Customer> customers = repository.findAll();
         return customers
                 .stream()
                 .map(c -> {
-                            GetCustomerDto customerDto = new GetCustomerDto();
+                            ReadCustomerDto customerDto = new ReadCustomerDto();
                             customerDto.setName(c.getName());
                             customerDto.setDescription(c.getDescription());
                             customerDto.setActive(c.getActive());
@@ -36,8 +36,8 @@ public class CustomerService {
                 ).toList();
     }
 
-    public GetCustomerDto findById(Long id) {
-        GetCustomerDto customerDto = new GetCustomerDto();
+    public ReadCustomerDto findById(Long id) {
+        ReadCustomerDto customerDto = new ReadCustomerDto();
         Customer customerRepository = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found"));
 
         customerDto.setName(customerRepository.getName());
@@ -63,8 +63,6 @@ public class CustomerService {
         customerEntity.setDescription(customerDto.getDescription());
         // customerEntity.setIdentifier(defineIdentifier.toString());
 
-        //TODO: Fazer mapeamento entre de Entity para DTO para TODOS OS FLUXOS INBOUND(de fora pra dentro)
-
         return repository.save(customerEntity);
     }
 
@@ -88,4 +86,8 @@ public class CustomerService {
             }
 
         }
+
+    public void deleteCustomer(Long id) {
+        repository.deleteById(id);
+    }
 }
