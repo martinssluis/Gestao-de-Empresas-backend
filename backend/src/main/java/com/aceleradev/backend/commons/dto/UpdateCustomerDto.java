@@ -3,6 +3,11 @@ package com.aceleradev.backend.commons.dto;
 public class UpdateCustomerDto {
 
     private String name;
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
     private Boolean isActive;
     private String phoneNumber;
     private String email;
@@ -14,10 +19,6 @@ public class UpdateCustomerDto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Boolean getActive() {
-        return isActive;
     }
 
     public void setActive(Boolean active) {

@@ -66,26 +66,26 @@ public class CustomerService {
         return repository.save(customerEntity);
     }
 
-        public Customer updateCustomer(Long id, UpdateCustomerDto customerDto) {
+    public Customer updateCustomer(Long id, UpdateCustomerDto customerDto) {
 
-            // 1. Pegar id
-            Optional<Customer> optionalCustomer = repository.findById(id);
+        // 1. Pegar id
+        Optional<Customer> optionalCustomer = repository.findById(id);
 
-            // 2. Setar informações
-            if (optionalCustomer.isPresent()) {
-                Customer customer = optionalCustomer.get();
-                customer.setName(customerDto.getName());
-                customer.setActive(customerDto.getActive());
-                customer.setPhoneNumber(customerDto.getPhoneNumber());
-                customer.setEmail(customerDto.getEmail());
-                customer.setDescription(customerDto.getDescription());
+        // 2. Setar informações
+        if (optionalCustomer.isPresent()) {
+            Customer customer = optionalCustomer.get();
+            customer.setName(customerDto.getName());
+            customer.setActive(customerDto.getIsActive());
+            customer.setPhoneNumber(customerDto.getPhoneNumber());
+            customer.setEmail(customerDto.getEmail());
+            customer.setDescription(customerDto.getDescription());
 
-                return repository.save(customer);
-            } else {
-                throw new RuntimeException("Customer not found");
-            }
-
+            return repository.save(customer);
+        } else {
+            throw new RuntimeException("Customer not found");
         }
+
+    }
 
     public void deleteCustomer(Long id) {
         repository.deleteById(id);
