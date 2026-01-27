@@ -27,6 +27,4 @@ public class Customer extends User {
         super(id, name, password, isActive, phoneNumber, email, identifier, description, createdAt, null);
     }
 
-
-
 }

@@ -1,19 +1,17 @@
 package com.aceleradev.backend.commons.dto;
 
-import java.time.LocalDate;
-
 public class UpdateCustomerDto {
 
-    private Long id;
     private String name;
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
     private Boolean isActive;
     private String phoneNumber;
     private String email;
     private String description;
-
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -23,11 +21,7 @@ public class UpdateCustomerDto {
         this.name = name;
     }
 
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 
