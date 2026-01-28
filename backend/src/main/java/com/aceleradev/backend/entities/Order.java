@@ -65,6 +65,9 @@ public class Order {
         }
     }
 
+    public void setItems(Set<OrderItem> items) {
+        this.items = items;
+    }
 
     public ZonedDateTime getMoment() {
         return moment;
