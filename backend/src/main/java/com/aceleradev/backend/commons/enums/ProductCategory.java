@@ -6,11 +6,10 @@ public enum ProductCategory {
     GAMES(2),
     OTHER(3);
 
-    private int code;
+    private Integer code;
     ProductCategory(int code) {
         this.code = code;
     }
-
 
     public int getCode() {
         return code;

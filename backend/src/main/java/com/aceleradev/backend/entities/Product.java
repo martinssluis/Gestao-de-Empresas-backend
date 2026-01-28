@@ -6,15 +6,15 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "tb_product")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
     private Double price;
 
-    private int category;
+    @Enumerated(EnumType.STRING)
+    private ProductCategory category;
 
     public Product() {
     }
@@ -25,17 +25,15 @@ public class Product {
         setPrice(price);
         setCategory(category);
     }
-    public ProductCategory getRole() {
 
-        return ProductCategory.valueOf(category);
+    public ProductCategory getCategory() {
+        return category;
     }
 
     public void setCategory(ProductCategory category) {
-        if (category != null){
-            this.category = category.getCode();
-        }
-
+        this.category = category;
     }
+
     public Long getId() {
         return id;
     }
@@ -46,10 +44,6 @@ public class Product {
 
     public Double getPrice() {
         return price;
-    }
-
-    public int getCategory() {
-        return category;
     }
 
     public void setId(Long id) {
@@ -63,6 +57,5 @@ public class Product {
     public void setPrice(Double price) {
         this.price = price;
     }
-
 
 }

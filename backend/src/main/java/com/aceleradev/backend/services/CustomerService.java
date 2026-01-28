@@ -39,7 +39,7 @@ public class CustomerService {
 
     public ReadCustomerDto findById(Long id) {
         ReadCustomerDto customerDto = new ReadCustomerDto();
-        Customer customerRepository = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Costumer not found"));
+        Customer customerRepository = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Customer not found"));
 
         customerDto.setName(customerRepository.getName());
         customerDto.setDescription(customerRepository.getDescription());
@@ -82,7 +82,7 @@ public class CustomerService {
 
             return repository.save(customer);
         } else {
-            throw new RuntimeException("Customer not found");
+            throw new RuntimeException("Customer not found!");
         }
 
     }
